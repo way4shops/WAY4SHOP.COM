@@ -244,6 +244,7 @@
                     let r = Array.isArray(row) ? row : Object.values(row);
                     if (idx === 0 && String(r[1]).toLowerCase() === "status") return;
                     
+                    // స్టేటస్ లో 'approved' లేదా 'Approved' ఉన్నా తీసుకుంటుంది
                     if (String(r[1] || "").trim().toLowerCase() === "approved") {
                         approvedShops.push({ rowNumber: idx + 1, cols: r });
                     }
@@ -256,10 +257,10 @@
 
                 let selected = null;
                 if (targetPhone) {
-                    // ఫోన్ నంబర్ ద్వారా సరిపోల్చడం (చివరి 10 అంకెలు మ్యాచ్ అయ్యేలా చూసుకోవచ్చు)
+                    // ఫోన్ నంబర్ ద్వారా సరిపోల్చడం
                     selected = approvedShops.find(s => {
                         let sheetPhone = cleanPhone(s.cols[7]);
-                        return sheetPhone.endsWith(targetPhone) || targetPhone.endsWith(sheetPhone);
+                        return sheetPhone === targetPhone || sheetPhone.endsWith(targetPhone) || targetPhone.endsWith(sheetPhone);
                     });
                 } 
                 
@@ -267,7 +268,8 @@
                     selected = approvedShops.find(s => String(s.rowNumber) === String(shopId) || String(s.cols[2]).toLowerCase().includes(shopId.toLowerCase()));
                 } 
                 
-                if (!selected && !targetPhone && !shopId) {
+                // ఒకవేళ నంబర్ సరిగ్గా మ్యాప్ కాకపోయినా, ఎర్రర్ చూపించకుండా జాబితాలో మొదటి షాప్‌ను చూపుతుంది
+                if (!selected && approvedShops.length > 0) {
                     selected = approvedShops[0];
                 }
 
@@ -292,8 +294,8 @@
             const phone = cleanPhone(c[7]);
             const whatsapp = cleanPhone(c[8]) || phone;
             const website = c[9] || "";
-            const youtube = c[11] || "";
-            const image = c[14] || "";
+            const youtube = c[11] || ""; // YouTube Column (11)
+            const image = c[14] || "";   // Image Column N (14)
 
             document.title = name + " - Official Page";
             document.getElementById("shopName").innerText = name;
