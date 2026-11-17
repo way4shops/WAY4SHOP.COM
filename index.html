@@ -199,6 +199,7 @@
     </div>
 
     <script>
+        // మీ Google Apps Script Web App URL ని ఇక్కడ రెండు కొటేషన్ల మధ్య పేస్ట్ చేయండి
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQXcKWlS_jIc5EjwcP1fl55AHg_srZLhUM1fCbvv9bpBITfcQewT_mJgV--A05eZlprg/exec";
 
         function getYouTubeEmbedUrl(url) {
@@ -230,21 +231,22 @@
             }
 
             const params = new URLSearchParams(window.location.search);
-            const targetPhone = cleanPhone(params.get("phone")); 
-            const shopId = params.get("id");
+            const shopId = params.get("id"); // ఉదాహరణకు ?id=2 (Google Sheet Row Number) లేదా షాప్ పేరు
 
             try {
                 const response = await fetch(SCRIPT_URL);
                 const data = await response.json();
                 
+                // డేటా అర్రే ఆఫ్ అర్రేస్ లేదా ఆబ్జెక్ట్స్ రూపంలో ఉన్నా హ్యాండిల్ చేస్తుంది
                 let rows = Array.isArray(data) ? data : (data.data || []);
                 
+                // Approved అయిన షాపులను మాత్రమే ఫిల్టర్ చేయడం (Column 2 = Status, index 1)
                 let approvedShops = [];
                 rows.forEach((row, idx) => {
+                    // ఒకవేళ row ఆబ్జెక్ట్ అయితే అర్రేగా మార్చడం లేదా నేరుగా ఇండెక్స్ వాడటం
                     let r = Array.isArray(row) ? row : Object.values(row);
-                    if (idx === 0 && String(r[1]).toLowerCase() === "status") return;
+                    if (idx === 0 && String(r[1]).toLowerCase() === "status") return; // Header row skip
                     
-                    // స్టేటస్ లో 'approved' లేదా 'Approved' ఉన్నా తీసుకుంటుంది
                     if (String(r[1] || "").trim().toLowerCase() === "approved") {
                         approvedShops.push({ rowNumber: idx + 1, cols: r });
                     }
@@ -256,20 +258,15 @@
                 }
 
                 let selected = null;
-                if (targetPhone) {
-                    // ఫోన్ నంబర్ ద్వారా సరిపోల్చడం
-                    selected = approvedShops.find(s => {
-                        let sheetPhone = cleanPhone(s.cols[7]);
-                        return sheetPhone === targetPhone || sheetPhone.endsWith(targetPhone) || targetPhone.endsWith(sheetPhone);
-                    });
-                } 
-                
-                if (!selected && shopId) {
-                    selected = approvedShops.find(s => String(s.rowNumber) === String(shopId) || String(s.cols[2]).toLowerCase().includes(shopId.toLowerCase()));
-                } 
-                
-                // ఒకవేళ నంబర్ సరిగ్గా మ్యాప్ కాకపోయినా, ఎర్రర్ చూపించకుండా జాబితాలో మొదటి షాప్‌ను చూపుతుంది
-                if (!selected && approvedShops.length > 0) {
+                if (shopId) {
+                    // ముందుగా Row Number తో వెతుకుతుంది (?id=2)
+                    selected = approvedShops.find(s => String(s.rowNumber) === String(shopId));
+                    // లేదంటే Shop Name తో వెతుకుతుంది (?id=ShopName)
+                    if (!selected) {
+                        selected = approvedShops.find(s => String(s.cols[2]).toLowerCase().includes(shopId.toLowerCase()));
+                    }
+                } else {
+                    // ?id= లేకపోతే మొదటి Approved షాప్ చూపిస్తుంది
                     selected = approvedShops[0];
                 }
 
@@ -286,6 +283,10 @@
         }
 
         function renderShop(c) {
+            // Columns Mapping (0-indexed):
+            // 0:Timestamp, 1:Status, 2:Name, 3:Owner, 4:Category, 5:Desc, 6:Address, 
+            // 7:Phone, 8:Whatsapp, 9:Website, 10:Youtube, 11:Amount, 12:PaymentMode, 13:Image
+
             const name = c[2] || "Business Name";
             const owner = c[3] ? "👤 " + c[3] : "";
             const category = c[4] || "Local Business";
@@ -294,8 +295,8 @@
             const phone = cleanPhone(c[7]);
             const whatsapp = cleanPhone(c[8]) || phone;
             const website = c[9] || "";
-            const youtube = c[11] || ""; // YouTube Column (11)
-            const image = c[14] || "";   // Image Column N (14)
+            const youtube = c[10] || "";
+            const image = c[13] || "";
 
             document.title = name + " - Official Page";
             document.getElementById("shopName").innerText = name;
@@ -361,3 +362,4 @@
     </script>
 </body>
 </html>
+
