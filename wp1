@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHOP NAME</title>
+  <meta property="og:image" content="https://90506377-532420986583662440.preview.editmysite.com/uploads/9/0/5/0/90506377/ft-omg_orig.png" />
+  <meta name="theme-color" content="#b91c1c" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    #header, #navigation, #header-wrap { display: none !important; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f5;
+      color: #111111;
+      overflow-x: hidden;
+      padding-top: 134px; /* Header (90px) + Menu bar (44px) = 134px exact */
+      padding-bottom: 12px;
+    }
+
+    /* Fixed Top Header - Compact & Aligned */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: #000000;
+      border-top: 3px solid gold;
+      border-bottom: 3px solid gold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      z-index: 1000;
+    }
+
+    .top-bar img {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid gold;
+    }
+
+    .shop-meta {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .shop-meta h1 {
+      font-size: 22px;
+      line-height: 1.15;
+      color: #ff2424;
+      text-shadow: 1px 1px 0 #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .shop-meta .sub {
+      font-size: 13px;
+      line-height: 1.25;
+      color: #ffd700;
+      font-weight: bold;
+      margin-top: 2px;
+    }
+
+    .shop-meta .addr {
+      font-size: 12px;
+      line-height: 1.2;
+      color: #4ade80;
+      font-weight: bold;
+      margin-top: 1px;
+    }
+
+    /* Fixed Menu Accordion - Right below 90px header */
+    .menu-fixed {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .accordion {
+      width: 100%;
+      height: 44px;
+      background: #cc0000;
+      color: #ffffff;
+      border: none;
+      padding: 0 12px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .accordion::after {
+      content: '\2261';
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .accordion.active::after {
+      content: '\00D7';
+      font-size: 24px;
+    }
+
+    .panel {
+      background: #e6f7ff;
+      max-height: 0;
+      overflow-y: auto;
+      transition: max-height 0.25s ease-out;
+    }
+
+    .panel-body {
+      padding: 8px 10px;
+    }
+
+    .sec-title {
+      background: #15803d;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 5px 8px;
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+
+    .sec-title:first-child {
+      margin-top: 0;
+    }
+
+    .sec-text {
+      font-size: 14px;
+      line-height: 1.45;
+      color: #111111;
+      padding: 5px 4px;
+      font-weight: 600;
+    }
+
+    .sec-text a {
+      color: #0044cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .panel-map {
+      width: 100%;
+      height: 165px;
+      border: 0;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .panel-foot {
+      background: #cc0000;
+      color: #ffffff;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 6px;
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+
+    /* Page Content - Tight Spacing */
+    .wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+
+    .vid-box iframe {
+      width: 100%;
+      height: 190px;
+      border: 0;
+      display: block;
+    }
+
+    .news-strip {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 30px;
+      background: #0022cc;
+      margin: 6px 0;
+      overflow: hidden;
+    }
+
+    .news-tag {
+      background: gold;
+      color: #000000;
+      font-size: 14px;
+      font-weight: bold;
+      height: 100%;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .news-strip marquee {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      padding-left: 6px;
+    }
+
+    /* Action Buttons - Single Line & Equal Height */
+    .act-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      height: 46px;
+      background: #cc0000;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 10px;
+      margin-bottom: 6px;
+      border-radius: 4px;
+    }
+
+    .act-btn img {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .act-btn span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .end-bar {
+      width: 100%;
+      height: 46px;
+      background: #cc0000;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 0 0 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .end-bar img {
+      width: 22px;
+      height: 28px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <img src="https://90506377-532420986583662440.preview.editmysite.com/uploads/9/0/5/0/90506377/ft-ani_orig.gif" alt="Logo" />
+    <div class="shop-meta">
+      <h1>SHOP NAME</h1>
+      <div class="sub">Products or Services name</div>
+      <div class="addr">Address, Street, City, State, India</div>
+    </div>
+  </div>
+
+  <div class="menu-fixed">
+    <button class="accordion" id="accBtn">Menu</button>
+    <div class="panel" id="accPanel">
+      <div class="panel-body">
+        <div class="sec-title">1. About</div>
+        <div class="sec-text">
+          Welcome..<br>
+          నమస్తే, స్వాగతం... "SHOP NAME" Shop కు... మా హృదయ పూర్వక ఆహ్వనం, ఎన్నో ఏళ్లు అనుభవంతో స్థాపించబడినది మరియు వినియోగదారుల నమ్మకాన్ని అతి తక్కువ కాలంలో పొందిన, మీ ఏరియాలో ప్రసిద్ధిచెందిన ఒక విలువైన షాప్. వినూత్నంగా, వేగంగా, అతి తక్కువ ధరలలో వినియోగదారులకు నాణ్యమైన సేవలు అందించుటకు "SHOP NAME" సిద్ధముగా ఉన్నది.<br>
+          ___________<br>
+          Namaste, We welcome you to our Shop "SHOP NAME" established with many years of experience and gained the trust of the customers in a short time, a valuable SERVICES that is well known in your area, "SHOP NAME" is ready to serve with quality, customers innovatively at the lowest possible prices...
+        </div>
+
+        <div class="sec-title">2. Products & Services</div>
+        <div class="sec-text">COMING SOON...</div>
+
+        <div class="sec-title">3. Door Delivery / Service*</div>
+        <div class="sec-text">Coming soon..</div>
+
+        <div class="sec-title">4. Discounts - Offers</div>
+        <div class="sec-text">Coming soon..</div>
+
+        <div class="sec-title">5. Mode of Payments</div>
+        <div class="sec-text">Cash / Cards / Online / Cheques ..etc</div>
+
+        <div class="sec-title">6. Address</div>
+        <div class="sec-text">
+          COMING SOON...
+          <iframe class="panel-map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3808.5689652603114!2d78.57180707516373!3d17.33633398354217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIwJzEwLjgiTiA3OMKwMzQnMjcuOCJF!5e0!3m2!1sen!2sin!4v1702141922799!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="sec-title">7. Working Time</div>
+        <div class="sec-text">
+          Working Days: Monday to Saturday<br>
+          Working Hours: 9am to 9pm<br>
+          Sunday – Holiday
+        </div>
+
+        <div class="sec-title">8. Contact Details</div>
+        <div class="sec-text">
+          CONTACT: PERSON<br>
+          PRODUCTS - SALES & SERVICES<br>
+          AREA, Hyd, T.S, India.<br>
+          <iframe class="panel-map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3808.5689652603114!2d78.57180707516373!3d17.33633398354217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIwJzEwLjgiTiA3OMKwMzQnMjcuOCJF!5e0!3m2!1sen!2sin!4v1702141922799!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+          1. Call Now | <a href="tel:">Click Here</a><br>
+          2. E-Mail | <a href="mailto:">Click Here</a><br>
+          3. WhatsApp Share | <a href="whatsapp://send?text=%E0%B0%AE%E0%B0%BE%20%E0%B0%95%E0%B0%B8%E0%B1%8D%E0%B0%9F%E0%B0%AE%E0%B0%B0%E0%B1%8D%20%E0%B0%B2%E0%B0%95%E0%B1%81..%20%E0%B0%B6%E0%B1%8D%E0%B0%B0%E0%B1%87%E0%B0%AF%E0%B1%8B%E0%B0%AD%E0%B0%BF%E0%B0%B2%E0%B0%BE%E0%B0%B7%E0%B1%81%E0%B0%B2%E0%B0%95%E0%B1%81%2C%20%E0%B0%AE%E0%B0%BF%E0%B0%A4%E0%B1%8D%E0%B0%B0%E0%B1%81%E0%B0%B2%E0%B0%95%E0%B1%81%20%E0%B0%B8%E0%B1%8D%E0%B0%B5%E0%B0%BE%E0%B0%97%E0%B0%A4%E0%B0%82%20|%20https://way4shops.com/">Click Here</a><br>
+          4. WhatsApp Chat | <a href="https://wa.me/">Click Here</a><br>
+          5. Location | <a href="https://goo.gl/maps/EyWuedPESVwMWx8W8">Click Here</a>
+        </div>
+
+        <div class="sec-title">Thank you, visit again</div>
+        <div class="panel-foot">YOUR SHOP NAME © 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="vid-box">
+      <iframe title="YouTube video player" src="https://www.youtube.com/embed/gwPbRdnGv3Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="news-strip">
+      <div class="news-tag">Products</div>
+      <marquee scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()">Latest Products or Services List, new arrivals, Discounts &amp; Offers...Coming soon...</marquee>
+    </div>
+
+    <a class="act-btn" href="tel:">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a1_orig.png" alt="Call" />
+      <span>Call Now</span>
+    </a>
+
+    <a class="act-btn" href="sms:?body=Hello,(write%20your%20message)...">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a6_orig.png" alt="Quotation" />
+      <span>Get Quotation</span>
+    </a>
+
+    <a class="act-btn" href="sms:?body=Hello,(write%20your%20message)...">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a5_orig.png" alt="Delivery" />
+      <span>Free Door Delivery*</span>
+    </a>
+
+    <a class="act-btn" href="https://wa.me/">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a2_orig.png" alt="WhatsApp" />
+      <span>Whatsapp</span>
+    </a>
+
+    <a class="act-btn" href="https://goo.gl/maps/">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a4_orig.png" alt="Location" />
+      <span>Location</span>
+    </a>
+
+    <a class="act-btn" href="https://www.youtube.com/shorts/FT-kQJd_xxI">
+      <img src="https://90506377-975026612268245272.preview.editmysite.com/uploads/9/0/5/0/90506377/yt-nicon1_orig.png" alt="Video" />
+      <span>Products Video</span>
+    </a>
+
+    <div class="end-bar">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/1-1-a-a-namasty_orig.png" alt="Namaste" />
+      <span>Thank you, visit again</span>
+    </div>
+  </div>
+
+  <script>
+    var accBtn = document.getElementById("accBtn");
+    var accPanel = document.getElementById("accPanel");
+    accBtn.addEventListener("click", function() {
+      this.classList.toggle("active");
+      if (accPanel.style.maxHeight) {
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = "75vh";
+      }
+    });
+
+    document.addEventListener("contextmenu", function(e) { e.preventDefault(); });
+    document.addEventListener("keydown", function(e) {
+      if (
+        (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
+        ((e.ctrlKey || e.metaKey) && (e.keyCode == 83 || e.keyCode == 85)) ||
+        e.keyCode == 123
+      ) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
