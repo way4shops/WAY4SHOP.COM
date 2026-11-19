@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHOP NAME</title>
+  <meta property="og:image" content="https://forsite1.weebly.com/uploads/9/0/5/0/90506377/mw2.png" />
+  <meta name="theme-color" content="red" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    #header, #navigation, #header-wrap { display: none !important; }
+
+    body {
+      font-family: "Times New Roman", Arial, sans-serif;
+      background: #fff5f5;
+      color: #111111;
+      overflow-x: hidden;
+      padding-top: 136px; /* Header (90px) + Menu bar (46px) */
+      padding-bottom: 10px;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: #000000;
+      border-top: 3px solid gold;
+      border-bottom: 3px solid gold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      z-index: 1000;
+    }
+
+    .top-bar .left-gif {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid gold;
+      background: #000000;
+    }
+
+    .top-bar .brand-banner {
+      flex: 1;
+      min-width: 0;
+      height: 70px;
+      max-width: 270px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .menu-fixed {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .accordion {
+      width: 100%;
+      height: 46px;
+      background-color: red;
+      color: #ffffff;
+      border: none;
+      padding: 0 12px;
+      font-family: "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .accordion::after {
+      content: '\2261';
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .accordion.active::after {
+      content: 'x';
+      font-size: 22px;
+    }
+
+    .panel {
+      background-color: #99e6ff;
+      max-height: 0;
+      overflow-y: auto;
+      transition: max-height 0.25s ease-out;
+    }
+
+    .panel-body {
+      padding: 8px 10px;
+    }
+
+    .sec-title {
+      background-color: green;
+      color: #ffffff;
+      font-family: "Times New Roman", serif;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px 8px;
+      margin-top: 8px;
+      border-radius: 3px;
+    }
+
+    .sec-title:first-child {
+      margin-top: 0;
+    }
+
+    .sec-text {
+      font-family: "Times New Roman", serif;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.4;
+      color: black;
+      padding: 5px 4px;
+    }
+
+    .sec-text.contact-box {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .sec-text a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    .panel-map {
+      width: 100%;
+      max-width: 320px;
+      height: 170px;
+      border: 0;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .panel-foot {
+      background-color: red;
+      color: #ffffff;
+      text-align: center;
+      font-family: "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 6px;
+      margin-top: 8px;
+      border-radius: 3px;
+    }
+
+    .wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+
+    .vid-box iframe {
+      width: 100%;
+      height: 190px;
+      border: 0;
+      display: block;
+    }
+
+    .news-strip {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 30px;
+      background-color: black;
+      border: 1px solid red;
+      margin: 6px 0;
+      overflow: hidden;
+    }
+
+    .news-strip .prod-gif {
+      width: 100px;
+      height: 26px;
+      min-width: 100px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .news-strip marquee {
+      background-color: blue;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      height: 100%;
+      line-height: 30px;
+      padding-left: 8px;
+    }
+
+    .act-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      height: 46px;
+      background-color: red;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 0 10px;
+      margin-bottom: 6px;
+      border-radius: 4px;
+    }
+
+    .act-btn img {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .act-btn span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .end-bar {
+      width: 100%;
+      height: 46px;
+      background-color: red;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 0 0 15px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .end-bar img {
+      width: 22px;
+      height: 28px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <img class="left-gif" src="https://9862627-806945270568048463.preview.editmysite.com/uploads/9/8/6/2/9862627/cloths-ani_orig.gif" alt="Logo" />
+    <img class="brand-banner" src="https://9862627-806945270568048463.preview.editmysite.com/uploads/9/8/6/2/9862627/raymond-shop-new_orig.png" alt="Shop Banner" />
+  </div>
+
+  <div class="menu-fixed">
+    <button class="accordion" id="accBtn">Menu</button>
+    <div class="panel" id="accPanel">
+      <div class="panel-body">
+        <div class="sec-title">1.About</div>
+        <div class="sec-text">
+          Welcome..<br>
+          నమస్తే, స్వాగతం... "SHOP NAME" Shop కు... మా హృదయ పూర్వక ఆహ్వనం,ఎన్నో ఏళ్లు అనుభవంతో స్థాపించబడినది మరియు వినియోగదారుల నమ్మకాన్ని అతి తక్కువ కాలంలో పొందిన ,మి ఎరియాలో ప్రసిద్ధిచెందిన ఒక విలువైన షాప్ వినుత్నంగా వేగంగా అతి తక్కువ ధరలలో వినియోగదారులకు నాణ్యమైన సేవలు అందించుటకు"SHOP NAME" సిద్ధముగా ఉన్నది.<br>
+          ___________<br><br>
+          Namasty, We welcome you to our Shop "SHOP NAME" have been established with many years of experience and have gained the trust of the customers in a short time, a valuable SERVICES that is well known in your area,"SHOP NAME" is ready to serve with quality, customers innovatively at the lowest possible prices...
+        </div>
+
+        <div class="sec-title">2.Products &amp; Services</div>
+        <div class="sec-text">COMING SOON...</div>
+
+        <div class="sec-title">3.Door Delivery / Service*</div>
+        <div class="sec-text">Coming soon..</div>
+
+        <div class="sec-title">4.Discounts-Offer's</div>
+        <div class="sec-text">Coming soon..</div>
+
+        <div class="sec-title">5.Mode of Payments</div>
+        <div class="sec-text">Cash / Credit Cards /.Google Pay<br>Phone Pay/ PTM / Checks ..etc</div>
+
+        <div class="sec-title">6.Adress</div>
+        <div class="sec-text">
+          COMING SOON...
+          <iframe class="panel-map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3808.5689652603114!2d78.57180707516373!3d17.33633398354217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIwJzEwLjgiTiA3OMKwMzQnMjcuOCJF!5e0!3m2!1sen!2sin!4v1702141922799!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="sec-title">7.Working Time</div>
+        <div class="sec-text">
+          Working Days: Monday to Saturday<br>
+          Working Hours : 9am to 9pm,<br>
+          Sunday – Holiday
+        </div>
+
+        <div class="sec-title">8.Contact Details</div>
+        <div class="sec-text contact-box">
+          CONTACT: PERSON,<br>
+          PRODUCTS -SALES &amp; SERVICES,<br>
+          Cont Ph:<br>
+          AREA, Hyd, T.S, India.<br>
+          <iframe class="panel-map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3808.5689652603114!2d78.57180707516373!3d17.33633398354217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIwJzEwLjgiTiA3OMKwMzQnMjcuOCJF!5e0!3m2!1sen!2sin!4v1702141922799!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+          1.Call Now | <a class="mobilesOnly" href="tel:">Click Here</a><br>
+          3.E-Mail | <a href="mailto:">Click Here</a><br>
+          2.WhatsApp Share | <a href="whatsapp://send?text=%20%E0%B0%AE%E0%B0%BE%20%E0%B0%95%E0%B0%B8%E0%B1%8D%E0%B0%9F%E0%B0%AE%E0%B0%B0%E0%B1%8D%20%E0%B0%B2%E0%B0%95%E0%B1%81..%20%E0%B0%B6%E0%B1%8D%E0%B0%B0%E0%B1%87%E0%B0%AF%E0%B1%8B%E0%B0%AD%E0%B0%BF%E0%B0%B2%E0%B0%BE%E0%B0%B7%E0%B1%81%E0%B0%B2%E0%B0%95%E0%B1%81%2C%20%E0%B0%AE%E0%B0%BF%E0%B0%A4%E0%B1%8D%E0%B0%B0%E0%B1%81%E0%B0%B2%E0%B0%95%E0%B1%81%20%E0%B0%B8%E0%B1%8D%E0%B0%B5%E0%B0%BE%E0%B0%97%E0%B0%A4%E0%B0%82%2C.%20%7C%20%2C%20https://sv9.weebly.com/Dd3">Click Here</a><br>
+          3.WhatsApp Chat | <a href="https://wa.me/91">Click Here</a><br>
+          4.E-Mail | <a href="mailto:">Click Here</a><br>
+          5.Location | <a href="https://goo.gl/maps/EyWuedPESVwMWx8W8">Click Here</a>
+        </div>
+
+        <div class="sec-title">Thank you, visit again</div>
+        <div class="panel-foot">YOUR SHOP NAME © 2024</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="vid-box">
+      <iframe title="YouTube video player" src="https://www.youtube.com/embed/gwPbRdnGv3Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="news-strip">
+      <img class="prod-gif" src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/products-button-gold-gif_orig.gif" alt="Products" />
+      <marquee scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()"><b>Latest Products or Services List, new arrivals, Discounts &amp; Offers...Coming soon...</b></marquee>
+    </div>
+
+    <a class="act-btn" href="tel:917702263948">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a1_orig.png" alt="Call" />
+      <span>Call Now</span>
+    </a>
+
+    <a class="act-btn" href="sms:+917702263948?body=Hello,(write%20your%20message)...">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a6_orig.png" alt="Quotation" />
+      <span>Get Quotation</span>
+    </a>
+
+    <a class="act-btn" href="sms:+917702263948?body=Hello,(write%20your%20message)...">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a5_orig.png" alt="Delivery" />
+      <span>Free Door Delivery*</span>
+    </a>
+
+    <a class="act-btn" href="https://wa.me/917702263948">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a2_orig.png" alt="WhatsApp" />
+      <span>Whatsapp</span>
+    </a>
+
+    <a class="act-btn" href="https://goo.gl/maps/">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a4_orig.png" alt="Location" />
+      <span>Location</span>
+    </a>
+
+    <a class="act-btn" href="https://www.youtube.com/shorts/FT-kQJd_xxI">
+      <img src="https://90506377-975026612268245272.preview.editmysite.com/uploads/9/0/5/0/90506377/yt-nicon1_orig.png" alt="Video" />
+      <span>Products Video</span>
+    </a>
+
+    <div class="end-bar">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/1-1-a-a-namasty_orig.png" alt="Namaste" />
+      <span>Thank you, visit again</span>
+    </div>
+  </div>
+
+  <script>
+    var accBtn = document.getElementById("accBtn");
+    var accPanel = document.getElementById("accPanel");
+    accBtn.addEventListener("click", function() {
+      this.classList.toggle("active");
+      if (accPanel.style.maxHeight) {
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = "75vh";
+      }
+    });
+
+    window.onload = function() {
+      document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+      }, false);
+      document.addEventListener("keydown", function(e) {
+        if (
+          (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
+          ((e.ctrlKey || e.metaKey) && (e.keyCode == 83 || e.keyCode == 85)) ||
+          e.keyCode == 123
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+    };
+  </script>
+</body>
+</html>
