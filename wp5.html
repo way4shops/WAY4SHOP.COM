@@ -68,33 +68,39 @@
       display: block;
     }
 
+    /* Marquee & Left GIF - Zero Top/Bottom Gap */
     .news-strip {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       width: 100%;
       height: 30px;
-      background-color: black;
+      background-color: gold;
       border: 1px solid red;
       margin: 6px 0;
+      padding: 0;
       overflow: hidden;
     }
 
     .news-strip .prod-gif {
-      width: 100px;
-      height: 26px;
-      min-width: 100px;
-      object-fit: contain;
+      width: 110px;
+      height: 100%;
+      min-width: 110px;
+      object-fit: fill;
       display: block;
+      margin: 0;
+      padding: 0;
     }
 
     .news-strip marquee {
+      flex: 1;
       background-color: gold;
       color: black;
       font-size: 14px;
       font-weight: bold;
       height: 100%;
-      line-height: 30px;
+      line-height: 28px;
       padding-left: 8px;
+      margin: 0;
     }
 
     .accordion {
