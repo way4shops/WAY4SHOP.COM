@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHOP NAME</title>
+  <meta property="og:image" content="https://90506377-532420986583662440.preview.editmysite.com/uploads/9/0/5/0/90506377/ft-omg_orig.png" />
+  <meta name="theme-color" content="red" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    #header, #navigation, #header-wrap { display: none !important; }
+
+    body {
+      font-family: "Times New Roman", Arial, sans-serif;
+      background: #fff5f5;
+      color: #111111;
+      overflow-x: hidden;
+      padding-top: 136px; /* Header (90px) + Select Menu (46px) */
+      padding-bottom: 10px;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: #000000;
+      border-top: 3px solid gold;
+      border-bottom: 3px solid gold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      z-index: 1000;
+    }
+
+    .top-bar img {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid gold;
+    }
+
+    .shop-meta {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .shop-meta h1 {
+      font-size: 22px;
+      line-height: 1.15;
+      color: red;
+      text-shadow: 1px 1px 2px white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .shop-meta .sub {
+      font-size: 13px;
+      line-height: 1.25;
+      color: red;
+      text-shadow: 1px 1px 2px white;
+      font-weight: bold;
+      margin-top: 2px;
+    }
+
+    .shop-meta .addr {
+      font-size: 12px;
+      line-height: 1.2;
+      color: green;
+      text-shadow: 1px 1px 2px white;
+      font-weight: bold;
+      margin-top: 1px;
+    }
+
+    .nav-select-wrap {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .nav-select {
+      width: 100%;
+      height: 46px;
+      background-color: red;
+      color: #ffffff;
+      font-family: "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+
+    .vid-box iframe {
+      width: 100%;
+      height: 190px;
+      border: 0;
+      display: block;
+    }
+
+    .news-strip {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 30px;
+      background: blue;
+      margin: 6px 0;
+      overflow: hidden;
+    }
+
+    .news-tag {
+      background: gold;
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+      height: 100%;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .news-strip marquee {
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      padding-left: 6px;
+    }
+
+    .act-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      height: 46px;
+      background: red;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 10px;
+      margin-bottom: 6px;
+      border-radius: 4px;
+    }
+
+    .act-btn img {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .act-btn span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .end-bar {
+      width: 100%;
+      height: 46px;
+      background: red;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 0 0 15px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .end-bar img {
+      width: 22px;
+      height: 28px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <img src="https://90506377-532420986583662440.preview.editmysite.com/uploads/9/0/5/0/90506377/ft-ani_orig.gif" alt="Logo" />
+    <div class="shop-meta">
+      <h1>SHOP NAME</h1>
+      <div class="sub">Products or Services name</div>
+      <div class="addr">Address, Street, City, State, India</div>
+    </div>
+  </div>
+
+  <form name="nav" class="nav-select-wrap">
+    <select class="nav-select" name="SelectURL" onchange="if(this.value && this.value !== '#') { document.location.href = this.value; }">
+      <option selected="selected" value="#">Menu</option>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" About :-"></optgroup>
+      <optgroup label="Coming Soon...."></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Services :-"></optgroup>
+      <optgroup label="Coming Soon...."></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Products :-"></optgroup>
+      <optgroup label="Coming Soon....."></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Free Door Pickup &amp; Delivery* :-"></optgroup>
+      <optgroup label="*Area List Coming Soon....."></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Discounts &amp; Offers * :-"></optgroup>
+      <optgroup label="Coming Soon..."></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Working Hours  :-"></optgroup>
+      <optgroup label="Monday - Saturday : 9 am - 9 pm, Sunday: Holiday* "></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Mode of Payments :-"></optgroup>
+      <optgroup label="Cash / Cridit Cards / Google Pay / PTM / Phone Pay...etc,....."></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" Contact Address :-"></optgroup>
+      <optgroup label="Shop No:#, Street, Land Mark, City, State, India,"></optgroup>
+      <optgroup label="_____________________"></optgroup>
+      <optgroup label=" * T &amp; C Apply, &amp; Will Change without Notice:-"></optgroup>
+      <optgroup label="---Thank you ,visit again---"></optgroup>
+    </select>
+  </form>
+
+  <div class="wrap">
+    <div class="vid-box">
+      <iframe title="YouTube video player" src="https://www.youtube.com/embed/gwPbRdnGv3Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="news-strip">
+      <div class="news-tag">Products</div>
+      <marquee scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()">Latest Products or Services List, new arrivals, Discounts &amp; Offers...Coming soon...</marquee>
+    </div>
+
+    <a class="act-btn" href="tel:917702263948">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a1_orig.png" alt="Call" />
+      <span>Call Now</span>
+    </a>
+
+    <a class="act-btn" href="sms:+917702263948?body=Hello,(write%20your%20message)...">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a6_orig.png" alt="Quotation" />
+      <span>Get Quotation</span>
+    </a>
+
+    <a class="act-btn" href="sms:+917702263948?body=Hello,(write%20your%20message)...">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a5_orig.png" alt="Delivery" />
+      <span>Free Door Delivery*</span>
+    </a>
+
+    <a class="act-btn" href="https://wa.me/917702263948">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a2_orig.png" alt="WhatsApp" />
+      <span>Whatsapp</span>
+    </a>
+
+    <a class="act-btn" href="https://goo.gl/maps/">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/a4_orig.png" alt="Location" />
+      <span>Location</span>
+    </a>
+
+    <a class="act-btn" href="https://www.youtube.com/shorts/FT-kQJd_xxI">
+      <img src="https://90506377-975026612268245272.preview.editmysite.com/uploads/9/0/5/0/90506377/yt-nicon1_orig.png" alt="Video" />
+      <span>Products Video</span>
+    </a>
+
+    <div class="end-bar">
+      <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/1-1-a-a-namasty_orig.png" alt="Namaste" />
+      <span>Thank you, visit again</span>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+      }, false);
+      document.addEventListener("keydown", function(e) {
+        if (
+          (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
+          ((e.ctrlKey || e.metaKey) && (e.keyCode == 83 || e.keyCode == 85)) ||
+          e.keyCode == 123
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+    };
+  </script>
+</body>
+</html>
