@@ -11,234 +11,205 @@
 <meta property="og:type" content="website">
 
 <style>
-  #header { display:none } #navigation { display:none; }
-  #header-wrap { display:none } 
-  BODY {overflow-x: hidden; background-color: black; color: white; margin: 0; padding: 0;top-padding:-20 px;}
+  #header, #navigation, #header-wrap { display: none; }
+  body {
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Accordion Styling */
+  .accordion {
+    background-color: red;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 6px 10px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.4s;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .accordion-title {
+    display: flex;
+    align-items: center;
+  }
+
+  .accordion:after {
+    content: '\25B6';
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .active:after {
+    content: "✖";
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: #0099ff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-out;
+    color: black;
+  }
+
+  /* Action Button Styling */
+  .action-btn {
+    margin-top: 2px;
+    background-color: red;
+    width: 100%;
+    height: 50px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:image" content="https://forsite1.weebly.com/uploads/9/0/5/0/90506377/mw2.png">
+<!-- Top Header Section (Same size & alignment as first code) -->
+<div style="width:100%; height:110px; background-color:black; border-top:5px groove gold; border-bottom:5px groove gold; position:relative; z-index:999;">
+  <img style="border:5px groove gold; border-radius:15px; margin-top:10px; margin-left:5px; height:80px; width:75px; background-color:black; float:left;" src="https://9862627-806945270568048463.preview.editmysite.com/uploads/9/8/6/2/9862627/cloths-ani_orig.gif" alt="Logo Animation"> 
+  <img style="height:90px; margin-top:10px; margin-left:10px; width:250px; float:left;" src="https://9862627-806945270568048463.preview.editmysite.com/uploads/9/8/6/2/9862627/raymond-shop-new_orig.png" alt="Raymond Shop">
+</div>
 
-<meta name="theme-color" content="red" />
+<!-- YouTube Video Section (Tucked cleanly below header) -->
+<div style="margin:0; padding:0; line-height:0;">
+  <iframe title="YouTube video player" src="https://www.youtube.com/embed/gwPbRdnGv3Y" width="100%" height="190" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block; margin:0; padding:0;"></iframe>
+</div>
 
+<!-- Marquee Products Section (Same alignment as first code with Products GIF) -->
+<div style="width:100%; background-color:blue; margin:0; padding:0; display:flex; align-items:center; border-top:0.5px solid red; border-bottom:0.5px solid red;">
+  <img src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/products-button-blue-gif_orig.gif" alt="Products" style="height:30px; width:auto; display:block;">
+  <marquee scrollamount="5" style="width:100%; color:white; font-size:18px; font-weight:bold; padding:4px 8px;" onmouseover="this.stop()" onmouseout="this.start()">Latest Products or Services List, new arrivals, Discounts &amp; Offers...Coming soon...</marquee>
+</div>
 
-
-<p style="height:110px; top:- 50px;  position :fixed; border-top:5px groove gold;border-bottom:5px groove gold; width:100%; background-color: black; "> <img style="border:5px groove gold;border-radius:15px;
-margin-top:10px;margin-bottom:6px; margin-left:5px;height80px;width:75px; position :fixed; background-color:black;
-" src="https://9862627-806945270568048463.preview.editmysite.com/uploads/9/8/6/2/9862627/cloths-ani_orig.gif
-"> <img style=" height:90px; position:fixed;margin-left:90px;margin-top:10px;margin-right:6px;width:270px;" src ="https://9862627-806945270568048463.preview.editmysite.com/uploads/9/8/6/2/9862627/raymond-shop-new_orig.png" >
-
-</p>
-<br>
-
-<iframe style="margin-top:100px;margin-bottom:1px;"title="YouTube video player" src="https://www.youtube.com/embed/gwPbRdnGv3Y
-" width="100%" height="200" frameborder="0"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen="">
-</iframe>
-<p style="font-size:20px;text-align: center; text-shadow: 0px 0px 0px white;  color: white; margin-right:0px; margin-left:0px;margin-top:-28px;margin-bottom:-5px;">
-<button class="news-button"style="margin-top:8px; top:0;display:flex;padding-top:px; padding-left:5px; padding-right:10px;padding-top:px;color:red;width:98.6%; height:27px;font-size:20px;color:black; background-color: black; border:.5px red;  margin-bottom:2px;margin-right:-1px;margin-left:px;"><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:px;MARGIN-LEFT:;margin-top:18px;margin-right:-10px; margin-left:-6px; boarder-color:;"position: fixed; top:; title=""
- src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/products-button-blue-gif_orig.gif
-" alt="" width="120" height="26"border=""  /><marquee  class="GeneratedMarquee" scrollamount="5" 
- style="width:100%; height:18px;padding-bottom:7px;margin-top:18px;padding-left:15px; padding-top:2px;margin-left:10px; margin-bottom:-20px;background-color:gold; margin-right:-15px;color:black;" onmouseover="this.stop()" onmouseout="this.start()"; ><b>Latest Products or Services List, new arrivals, Discounts & Offers...Coming soon...</b></marquee></button></p>
-<br>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.accordion {
-  background-color: red;
-  color: #ffffff; text-decoration: none;
-  cursor: pointer;
-  padding: 8px;
-  width: 100%;width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 18px;
-  transition: 0.4s;
-}
-
-.active, .accordion:hover {
-   background-image:url("");
-}
-
-.accordion:after {
-  content: '\25B6';
-  color: white; 
-  font-weight: bold; text-decoration: none;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "x"; color: ;
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: #0099ff; text-decoration: none;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-</style>
-</head>
-<body>
-<button class="accordion" style="margin-top:2px;"><b><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:8px;MARGIN-LEFT:;margin-top:;boarder-color:;"position: fixed; MARGIN-TOP:;top:0; title=""
- src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/219/medium/ABOUT.png?1669788162" alt="" width="37" height="35"border=""  />About</b></button>
+<!-- Expandable Accordion Sections from Old Code -->
+<button class="accordion">
+  <span class="accordion-title">
+    <img style="margin-right:8px;" src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/219/medium/ABOUT.png?1669788162" alt="" width="37" height="35">About
+  </span>
+</button>
 <div class="panel">
-<p style="font-family:'Times New Roman';
-font-size:18px;  
-font-weight:bold;
-line-height:;
-color:black;">Welcome to...<br>
-<br>నమస్తే, స్వాగతం...
-"Shop Name Site"కు... మా హృదయ పూర్వక ఆహ్వనం,ఎన్నో ఏళ్లు అనుభవంతో స్థాపించబడినది మరియు వినియోగదారుల నమ్మకాన్ని అతి తక్కువ కాలంలో పొందిన ,మి ఎరియాలో ప్రసిద్ధిచెందిన ఒక విలువైన షాప్ వినుత్నంగా వేగంగా అతి తక్కువ ధరలలో వినియోగదారులకు నాణ్యమైన  సేవలు అందించుటకు"Shop Name Site" సిద్ధముగా ఉన్నది.
-<br>___________<br><br>
-Namasty,  We welcome you to our "Shop Name Site", have been established with many years of experience and have gained the trust of the customers in a short time, a valuable SERVICES that is well known in your area,"Shop Name Site" is ready to serve with quality, customers innovatively at the lowest possible prices...
-</p><br>
+  <p style="font-family:'Times New Roman', serif; font-size:18px; font-weight:bold; color:black; margin:12px 0;">
+    Welcome to...<br><br>
+    నమస్తే, స్వాగతం... "Shop Name Site"కు... మా హృదయ పూర్వక ఆహ్వనం, ఎన్నో ఏళ్లు అనుభవంతో స్థాపించబడినది మరియు వినియోగదారుల నమ్మకాన్ని అతి తక్కువ కాలంలో పొందిన, మీ ఏరియాలో ప్రసిద్ధిచెందిన ఒక విలువైన షాప్. వినూత్నంగా వేగంగా అతి తక్కువ ధరలలో వినియోగదారులకు నాణ్యమైన సేవలు అందించుటకు "Shop Name Site" సిద్ధముగా ఉన్నది.
+    <br>___________<br><br>
+    Namasty, We welcome you to our "Shop Name Site", have been established with many years of experience and have gained the trust of the customers in a short time, a valuable SERVICES that is well known in your area, "Shop Name Site" is ready to serve with quality, customers innovatively at the lowest possible prices...
+  </p>
 </div>
-<button class="accordion" style="margin-top:2px;"><b><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:8px;MARGIN-LEFT:;margin-top:;boarder-color:;"position: fixed; MARGIN-TOP:;top:0; title=""
- src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/220/medium/PRODUCT.png?1669788167" alt="" width="37" height="35"border=""  />Products / Services</b></button>
-<div class="panel"><br><p style="color:black; font-size:20px;"><b>Coming soon...</b></p>
-</p>
 
-</div><button class="accordion" style="margin-top:2px;"><b><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:8px;MARGIN-LEFT:;margin-top:;boarder-color:;"position: fixed; MARGIN-TOP:;top:0; title=""
- src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/833/219/medium/ORDER_NOW_FREEDELIVERY_BLUE_NA.png?1616825358" alt="" width="37" height="35"border=""  />Free Delivery*</b></button>
-<div class="panel"><br><p style="color:black; font-size:20px;"><b>*Area List Coming soon...</b></p>
-</p>
-
-</div><button class="accordion" style="margin-top:2px;"><b><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:8px;MARGIN-LEFT:;margin-top:;boarder-color:;"position: fixed; MARGIN-TOP:;top:0; title=""
- src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/218/medium/OFFERS.png?1669788164" alt="" width="37" height="35"border=""  />Discounts/Offer's</b></button>
-<div class="panel"><br><p style="color:black; font-size:20px;"><b>Coming soon...</b></p>
-</p>
-
-
-
-</div><button class="accordion" style="margin-top:2px;font-color:black;"><b><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:8px;MARGIN-LEFT:;margin-top:;boarder-color:;"position: fixed; MARGIN-TOP:;top:0; title=""
- src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/221/medium/WORKING_DAYS.png?1669788167" alt="" width="37" height="35"border=""  />Working Hours</b></button>
-<div class="panel"><p style="color:black; font-size:20px;"><b><br>Working Days: Monday to Saturday.. 
-<br> Working Hours : 9am to 9pm,
-<br> Sunday – Holiday <br><a href=""style="text-decoration: none;">More Coming Soon...</a></b></p><br><br>
-</div><button class="accordion" style="margin-top:2px;"><b><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:8px;MARGIN-LEFT:;margin-top:;boarder-color:;"position: fixed; MARGIN-TOP:;top:0; title=""
- src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/217/medium/CONTACT_DETAILS.png?1669788164" alt="" width="37" height="35"border=""  />Contact Details</b></button>
-<div class="panel"><p style="font-family:'arial';
-font-size:18px;
-font-weight:bold;
-line-height:; text-align: left;
-color:#000000;">CONTACT PERSON NAME<br>SERVICES/PRODUCTS,<br>Cont Ph:1234567890<br>AREA,Hyd, T.S, India.<br><br><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1904.3315785129118!2d78.5872054022067!3d17.331794044117814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba1e7095658a1%3A0xc5643e8a69c13dc8!2s38%2C%20Bhagyalatha%20Colony%2C%20Vanasthalipuram%2C%20Telangana%20500070!5e0!3m2!1sen!2sin!4v1656752826587!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br><br>1.Call Now | <a class="mobilesOnly" href="tel:"style="text-decoration: none;color:blue;>Click Here</a><br>3.E-Mail | <a href="mailto:bolgateceo@gmail.com"style="text-decoration: none;color:blue;">Click Here</a><br>2.WhatsApp Share | <a style="text-decoration: none;color:blue;" href="whatsapp://send?text= మా కస్టమర్ లకు.. శ్రేయోభిలాషులకు, మిత్రులకు Happy New Year 2025, స్వాగతం,. | , https://sites.google.com/view/bizpage/d1"data-action"share
-whatsapp/share">Click Here</a><br>3.WhatsApp Chat | <a href="https://wa.me/91"style="text-decoration: none;color:blue;">Click Here</a> <br>4.E-Mail | <a href="mailto:bolgateceo@gmail.com"style="text-decoration: none;color:blue;">Click Here</a> <br>5.Location | <a href="https://goo.gl/maps/"style="text-decoration: none;color:blue;">Click Here</a> 
-</p><p style="font-family:'Times New Roman';
-font-size:20px;height:30px;width:100%;padding-top: 6px;
-background-color: green; text-align: left;
-font-weight:bold;
-color:#ffffff;">
-  Thank you, visit again</p>
-        
-          <p style="font-family:'Times New Roman';
-font-size:20px;height:30px;width:100%;
-background-color: blue; text-align: center;padding-top: 6px;
-font-weight:bold;
-color:#ffffff;">
-Shop name © 2025</p>
-<br><br>
+<button class="accordion">
+  <span class="accordion-title">
+    <img style="margin-right:8px;" src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/220/medium/PRODUCT.png?1669788167" alt="" width="37" height="35">Products / Services
+  </span>
+</button>
+<div class="panel">
+  <p style="color:black; font-size:20px; font-weight:bold; margin:12px 0;">Coming soon...</p>
 </div>
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-</script>
-</body>
-</html>
-<p style="font-family:'Times New Roman';
-font-size:15px;height:40px;width:100%;margin-top:2px;
-background-color: red; text-align: center;padding-top: 8px;border-radius:0px 0px 15px 15px;
-font-weight:bold;
-color:#ffffff;"><img STYLE="VERTICAL-ALIGN:MIDDLE;MARGIN-RIGHT:px;MARGIN-LEFT:;margin-top:-2px; 
-boarder-color:; "position: fixed; top:0; title=""
- src="https://90506377-802694308951219838.preview.editmysite.com/uploads/9/0/5/0/90506377/1-1-a-a-namasty_orig.png
-" alt="" width="25" height="35"border=""  /><B>
-THANK YOU,VISIT AGAIN</B></p>
+<button class="accordion">
+  <span class="accordion-title">
+    <img style="margin-right:8px;" src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/833/219/medium/ORDER_NOW_FREEDELIVERY_BLUE_NA.png?1616825358" alt="" width="37" height="35">Free Delivery*
+  </span>
+</button>
+<div class="panel">
+  <p style="color:black; font-size:20px; font-weight:bold; margin:12px 0;">*Area List Coming soon...</p>
+</div>
 
+<button class="accordion">
+  <span class="accordion-title">
+    <img style="margin-right:8px;" src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/218/medium/OFFERS.png?1669788164" alt="" width="37" height="35">Discounts / Offers
+  </span>
+</button>
+<div class="panel">
+  <p style="color:black; font-size:20px; font-weight:bold; margin:12px 0;">Coming soon...</p>
+</div>
 
-<meta property="og:image" content="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/785/421/medium/DRESSES.png?1592922487">
+<button class="accordion">
+  <span class="accordion-title">
+    <img style="margin-right:8px;" src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/221/medium/WORKING_DAYS.png?1669788167" alt="" width="37" height="35">Working Hours
+  </span>
+</button>
+<div class="panel">
+  <p style="color:black; font-size:20px; font-weight:bold; margin:12px 0;">
+    Working Days: Monday to Saturday<br>
+    Working Hours: 9am to 9pm<br>
+    Sunday – Holiday<br>
+    <a href="#" style="text-decoration:none; color:#000080;">More Coming Soon...</a>
+  </p>
+</div>
 
-<meta name="theme-color" content="black"/> 
-<style>
-  #header { display:none } #navigation { display:none; }
- #header-wrap { display:none } 
-</style>
-<style type="text/css">
-BODY {overflow-x: hidden}
-</style>
-<br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br>
-<style>
-  #header { display:none } #navigation { display:none; }
- #header-wrap { display:none } 
-</style>
-<style type="text/css">
-BODY {overflow-x: hidden}
-</style>
-<script language="JavaScript">
-  /**
-    * Disable right-click of mouse, F12 key, and save key combinations on page
-    * By Arthur Gareginyan (arthurgareginyan@gmail.com)
-    * For full source code, visit https://mycyberuniverse.com
-    */
-  window.onload = function() {
-    document.addEventListener("contextmenu", function(e){
-      e.preventDefault();
-    }, false);
-    document.addEventListener("keydown", function(e) {
-    //document.onkeydown = function(e) {
-      // "I" key
-      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-        disabledEvent(e);
-      }
-      // "J" key
-      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-        disabledEvent(e);
-      }
-      // "S" key + macOS
-      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-        disabledEvent(e);
-      }
-      // "U" key
-      if (e.ctrlKey && e.keyCode == 85) {
-        disabledEvent(e);
-      }
-      // "F12" key
-      if (event.keyCode == 123) {
-        disabledEvent(e);
-      }
-    }, false);
-    function disabledEvent(e){
-      if (e.stopPropagation){
-        e.stopPropagation();
-      } else if (window.event){
-        window.event.cancelBubble = true;
-      }
-      e.preventDefault();
-      return false;
-    }
-  };
-</script>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<button class="accordion">
+  <span class="accordion-title">
+    <img style="margin-right:8px;" src="https://puzl-production.s3.amazonaws.com/files/uploads/files/001/871/217/medium/CONTACT_DETAILS.png?1669788164" alt="" width="37" height="35">Contact Details
+  </span>
+</button>
+<div class="panel">
+  <div style="font-family:Arial, sans-serif; font-size:18px; font-weight:bold; text-align:left; color:#000000; margin:12px 0;">
+    CONTACT PERSON NAME<br>
+    SERVICES/PRODUCTS,<br>
+    Cont Ph: 1234567890<br>
+    AREA, Hyd, T.S, India.<br><br>
+    <iframe src="https://google.com" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- Direct Action Buttons from First Code -->
+<a href="tel:91" style="text-decoration:none;">
+  <button class="action-btn">
+    <img style="margin-right:8px;" src="https://editmysite.com" alt="" width="42" height="40">Call Now
+  </button>
+</a>
+
+<a href="sms:+91?body=Hello,(write%20your%20message)...," style="text-decoration:none;">
+  <button class="action-btn">
+    <img style="margin-right:8px;" src="https://editmysite.com" alt="" width="42" height="40">Get Quotation
+  </button>
+</a>
+
+<a href="sms:+91?body=Hello,(write%20your%20message)...," style="text-decoration:none;">
+  <button class="action-btn">
+    <img style="margin-right:8px;" src="https://editmysite.com" alt="" width="42" height="40">Order Now
+  </button>
+</a>
+
+<a href="https://wa.me" style="text-decoration:none;">
+  <button class="action-btn">
+    <img style="margin-right:8px;" src="https://editmysite.com" alt="" width="42" height="40">Whatsapp
+  </button>
+</a>
+
+<a href="https://goo.gl" style="text-decoration:none;">
+  <button class="action-btn">
+    <img style="margin-right:8px;" src="https://editmysite.com" alt="" width="42" height="40">Location
+  </button>
+</a>
+
+<a href="https://youtube.com" style="text-decoration:none;">
+  <button class="action-btn">
+    <img style="margin-right:8px;" src="https://editmysite.com" alt="" width="42" height="40">Products
+  </button>
+</a>
+
+<button style="margin-top:2px; background-color:red; width:100%; height:50px; border:none; text-align:center; font-size:20px; font-weight:bold; color:white; padding-top:6px; border-radius:0px 0px 15px 15px; margin-bottom:60px;">
+  <img style="vertical-align:middle; margin-right:5px;" src="https://editmysite.com" alt="" width="25" height="35">Thank you, visit again
